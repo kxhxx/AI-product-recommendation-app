@@ -1,0 +1,16 @@
+# Python
+__pycache__/
+*.pyc
+.venv
+venv/
+.env
+
+# Notebooks
+.ipynb_checkpoints/
+
+# Node
+/frontend/node_modules
+/frontend/dist
+
+# Large files and models to ignore
+/local_models
