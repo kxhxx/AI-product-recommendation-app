@@ -39,7 +39,7 @@ def startup_event():
     print("--- Loading models and connecting to services... ---")
     
     # Load the sentence transformer model
-    model = SentenceTransformer('clip-ViT-B-32')
+    model = SentenceTransformer('all-MiniLM-L6-v2')
     
     # Initialize Pinecone
     pc = Pinecone(api_key=PINECONE_API_KEY)
