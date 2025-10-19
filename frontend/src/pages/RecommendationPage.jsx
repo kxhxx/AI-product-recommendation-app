@@ -20,6 +20,8 @@ const RecommendationPage = () => {
     e.preventDefault();
     if (!query.trim()) return;
 
+    const recommendResponse = await axios.post(`${API_URL}/recommend`, { query: query, top_k: 3 });
+    
     const userMessage = { author: 'user', text: query };
     setMessages(prev => [...prev, userMessage]);
     setQuery('');
@@ -27,14 +29,13 @@ const RecommendationPage = () => {
 
     try {
       // Step 1: Get recommendations from the backend
-      const recommendResponse = await axios.post('http://127.0.0.1:8000/recommend', { query: query, top_k: 3 });
+      const API_URL = "https://product-recommendation-api-r002.onrender.com";
       const recommendations = recommendResponse.data.recommendations;
 
       // Step 2: Generate descriptions for each recommendation
       const productsWithDescriptions = await Promise.all(
         recommendations.map(async (product) => {
-          const descResponse = await axios.post('http://127.0.0.1:8000/generate-description', {
-            title: product.title,
+          const descResponse = await axios.post(`${API_URL}/generate-description`, {            title: product.title,
             material: product.material,
             color: product.color,
           });
