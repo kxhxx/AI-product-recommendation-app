@@ -3,6 +3,7 @@ import axios from 'axios';
 import ProductCard from '../components/ProductCard';
 
 const RecommendationPage = () => {
+  const API_URL = "https://product-recommendation-api-r002.onrender.com"; 
   const [messages, setMessages] = useState([
     { author: 'bot', text: "Hello! What kind of furniture are you looking for today?" }
   ]);
