@@ -4,7 +4,7 @@ const ProductCard = ({ product }) => {
   // Use a placeholder image if the product image is missing or invalid
   const imageUrl = product.image_url && product.image_url.startsWith('http')
     ? product.image_url
-    : 'https://via.placeholder.com/300';
+    : 'https://placehold.co/300';
 
   return (
     <div className="bg-white rounded-lg shadow-md overflow-hidden flex flex-col">
