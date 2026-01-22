@@ -61,10 +61,8 @@ def startup_event():
 # This allows your React frontend (running on a different port) to communicate with this backend.
 app.add_middleware(
     CORSMiddleware,
-allow_origins=[
-    "http://localhost:5173",
-    "https://ai-product-recommendation-app.vercel.app"
-],    allow_credentials=True,
+    allow_origins=["*"],  # Temporarily allow all to rule out CORS as the issue
+    allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
 )
